@@ -1,0 +1,35 @@
+<div id=login-box>
+    <div id="login-box-title">Admin Login</div>
+    <form action="/admin/login" method="POST"id="login-form">
+        <div id="error-msg">
+            <% if (messages.error) {%>
+                <%= messages.error%>
+            <% } %>
+        </div>
+
+        <div class="input">
+            <div class="label">
+                <label for="username">Username</label>
+            </div>
+            
+            <input type="text" id="username" name="username" class="login-input" required>
+        </div>
+        
+        <div class="input">
+            <div class="label">
+                <label class="label"for="password">Password</label>
+            </div>
+            <input type="password" id="password" name="password" class="login-input" required>
+        </div>
+
+        <div class="input">
+            <a href="/" id="back-button">Back</a>
+            <button id="login-button" type="submit">Login</button>
+        </div>
+    </form>
+    
+</div>
+
+
+
+
