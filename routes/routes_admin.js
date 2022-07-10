@@ -113,15 +113,15 @@ router.delete('/logout', (req, res) => {
   })
 
 function checkAunthenticated(req, res, next) {
-	// if (req.isAuthenticated()) {
-	//   return next()
-	// }
-	// res.redirect('/admin/login')
-
 	if (req.isAuthenticated()) {
-		return res.redirect('/admin')
-	  }
-	  next()
+	  return next()
+	}
+	res.redirect('/admin/login')
+
+	// if (req.isAuthenticated()) {
+	// 	return res.redirect('/admin')
+	//   }
+	//   next()
   }
   
 function checkNotAunthenticated(req, res, next) {
