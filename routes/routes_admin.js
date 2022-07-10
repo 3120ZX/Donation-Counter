@@ -7,6 +7,7 @@ const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 const initializePassport = require('./../passport-config')
+const DateOnly = require('dateonly');
 
 
 router.use(flash())
@@ -112,15 +113,15 @@ router.delete('/logout', (req, res) => {
   })
 
 function checkAunthenticated(req, res, next) {
-	if (req.isAuthenticated()) {
-	  return next()
-	}
-	res.redirect('/admin/login')
-
 	// if (req.isAuthenticated()) {
-	// 	return res.redirect('/admin')
-	//   }
-	//   next()
+	//   return next()
+	// }
+	// res.redirect('/admin/login')
+
+	if (req.isAuthenticated()) {
+		return res.redirect('/admin')
+	  }
+	  next()
   }
   
 function checkNotAunthenticated(req, res, next) {
